@@ -106,44 +106,12 @@ The chest X-ray and fusion models predict six thoracic findings:
 ---
 
 ## System Architecture
+The  architecture of the system shown in Figure 4.1 is modular and tiered, allowing it to perform explainable medical diagnoses using X-ray images and laboratory data. The components include a user interface, a backend controller, the modality-specific preprocessing units, the machine learning models, the explainability modules, and the output-generating units. Input is first checked by the backend controller, then routed depending on the modality present to permit the system to function in an image-only, lab-only, or both chest X-ray and lab modality configuration.
 
-The project contains four major branches:
 
-```text
-Input Layer
-│
-├── Chest X-ray Image
-├── Bone X-ray Image
-└── Blood Laboratory Data
-        │
-        ▼
-Preprocessing
-│
-├── Image resizing to 224 × 224
-├── Image normalization
-├── Lab cleaning
-├── Missing-value handling
-├── Scaling
-└── Clinical feature engineering
-        │
-        ▼
-Models
-│
-├── DenseNet-121 Chest X-ray Model
-├── DenseNet-121 Bone X-ray Model
-├── Laboratory Neural Network
-└── Cross-Attention Fusion Model
-        │
-        ▼
-Explainability
-│
-├── Grad-CAM for X-ray images
-└── Integrated Gradients for laboratory data
-        │
-        ▼
-Outputs
-│
-├── Disease probabilities
-├── Heatmaps
-├── Lab feature importance
-└── Downloadable diagnostic report
+Each modality has its own preprocessing and modeling stage. Chest and bone X-rays are processed using DenseNet-121 models, while laboratory data are processed using a neural network supported by clinical feature engineering. For the multimodal lung diagnosis task, chest X-ray features and laboratory features are combined using a cross-attention fusion model. Explainability is provided using Grad-CAM or Grad-CAM++ for image outputs and Integrated Gradients for laboratory feature attribution.
+
+
+
+<img width="782" height="1025" alt="image" src="https://github.com/user-attachments/assets/25364c39-f56b-4df0-96fe-a03b614a2390" />
+
