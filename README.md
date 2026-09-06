@@ -115,3 +115,24 @@ Each modality has its own preprocessing and modeling stage. Chest and bone X-ray
 
 <img width="782" height="1025" alt="image" src="https://github.com/user-attachments/assets/25364c39-f56b-4df0-96fe-a03b614a2390" />
 
+## Technologies & Tools
+
+This project is built using a modern deep learning and Python ecosystem:
+
+### Deep Learning & Machine Learning
+*   **PyTorch:** Core deep learning framework used for model architecture, training, and evaluation.
+*   **DenseNet-121:** Primary vision backbone for the image-based diagnosis branch.
+*   **Scikit-Learn:** Used for clinical feature engineering, data scaling, and preprocessing of the 32 blood laboratory tests.
+*   **Cross-Attention Modules:** Custom feature fusion architecture allowing laboratory signals to interact with spatial chest X-ray features.
+
+### Explainable AI (XAI)
+*   **Grad-CAM & Grad-CAM++:** Used to generate visual heatmaps highlighting critical regions in Chest and Bone X-ray images.
+*   **Integrated Gradients (Captum):** Used to compute and visualize feature attribution for the laboratory data branch.
+
+### Data Processing & Utilities
+*   **Pandas & NumPy:** For structuring and handling the multi-dimensional clinical datasets.
+*   **OpenCV & Pillow:** For X-ray image preprocessing, resizing, and array transformations.
+*   **Matplotlib / Seaborn:** For generating the explainability overlays and compiling downloadable diagnostic reports.
+
+### Application & Interface
+*   **Web UI:** Interactive diagnostic dashboard allowing users to upload X-rays, input lab parameters, and view side-by-side explainability outputs.
